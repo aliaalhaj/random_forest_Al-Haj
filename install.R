@@ -1,5 +1,4 @@
 pkgs = c("tidyverse", "randomForest", "ggplot2", "rfUtilities","knitr", "caret", "e1071", "klaR")
-if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
   BiocManager::install("phyloseq", version = "1.28")
 ncores = parallel::detectCores()
