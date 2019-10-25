@@ -23,13 +23,14 @@ We create a Phyloseq object using:
 We are using the tara oceans 16S rRNA dataset to execute this code: https://www.ebi.ac.uk/services/tara-oceans-data
 ```{r}
 require(tidyverse)
-otutable_raw <- read_csv(file = "https://github.com/aliaalhaj/random_forest_Al-Haj/blob/master/otu.csv")
+require(phyloseq)
+otutable_raw <- read_csv(file = "https://raw.githubusercontent.com/aliaalhaj/random_forest_Al-Haj/master/otu.csv")
 otu <- as.data.frame(otutable_raw)
 otu<-subset(otu, select=-c(X1)) #if there are more columns that are non-numeric (i.e. taxonomy) add in to the -c(). For example, if you have a column named taxonomy select=-c(X1, taxonomy).
 row.names(otu) <- otutable_raw$X1
 otu <- otu_table(otu, taxa_are_rows = T) #this makes the OTU table into an object pyloseq can use
 
-taxatable_raw <- read_csv(file = "https://github.com/aliaalhaj/random_forest_Al-Haj/blob/master/taxa.csv")
+taxatable_raw <- read_csv(file = "https://raw.githubusercontent.com/aliaalhaj/random_forest_Al-Haj/master/taxa.csv")
 taxonomy <-as.data.frame(taxatable_raw)
 row.names(taxonomy)<- taxatable_raw$X1
 taxonomy <- apply(taxonomy, 2, function(x) gsub("^$|^ $", NA, x))
@@ -37,7 +38,7 @@ taxonomy <- as.matrix(taxonomy)
 taxonomy <- tax_table(taxonomy) #This makes the taxa table into an object phyloseq can use
 
 
-map <- read_csv(file = "https://github.com/aliaalhaj/random_forest_Al-Haj/blob/master/Tara_oceans_mapping_file.csv")
+map <- read_csv(file = "https://raw.githubusercontent.com/aliaalhaj/random_forest_Al-Haj/master/Tara_oceans_mapping_file.csv")
 names(map)[1] <- 'SampleID'
 row.names(map) <- map$SampleID
 map[2:4] <- lapply(map[2:4] , factor) #change to columns where your factors are
