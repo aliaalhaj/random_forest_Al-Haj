@@ -1,23 +1,31 @@
-# random_forest_Al-Haj
+# Random Forest Classifier of Metabarcode Sequence Data
 
 ## Quick Start
 
-  - Any instructions for running. e.g. does user need to open the binder and then click "knit"?
-  - 
+  -Open the binder and press knit to run the code. 
+  
 ## Example Output
 
-   - a png or svg of your coolest visualization (high res!)
+   - ![](heatmap1.png)
 
 ## Summary
+Random forest helps determine how well sequence variants group according to individual factors as determined by the metadata file. It     does this by employing an ensemble of uncorrelated decision tree models that eventually converge on the grouping. The heat map provides a visual representation of this grouping. Random forest does not indicate statistical differences among groups.
 
-   - What is the visualization?
-   - What data goes in (and what preprocessing is necessary)?
-   - How should we use/interpret this visualization?
- 
+Inputs:
+1.otu table
+2.taxa table
+3.mapping file
+OR
+1. phyloseq file
+
  
 ## Authors
 
- - Author Name, github id (and ORCID if you have it)
+ - Alia Al-Haj
+        Github: https://github.com/aliaalhaj
+        ORCID: https://orcid.org/0000-0003-1899-5117
+ - Devon O'Rourke
+        Github: https://github.com/devonorourke
 
 
 ## Links
